@@ -49,6 +49,7 @@ run();
 async function run(){
 	let db = await database.connect({ // creates a database connection
 		host: 'localhost',
+		port: '3306', // the default is 3306
 		user: 'root',
 		password: '',
 		database: 'my_database'

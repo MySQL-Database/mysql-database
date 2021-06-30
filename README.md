@@ -14,6 +14,31 @@
 
 `npm i mysql-database`
 
+### Events
+- connected (connection)
+### Class Methods
+- connect (mysql_server_config)
+### Connection Methods
+- set (table, key, value)
+- get (table, key)
+- push (table, key, value)
+- pull (table, key, value, option)
+- includes (table, key, value)
+- add (table, key, value)
+- sub (table, key, value)
+- all (table)
+- delete (table, key, value)
+- tables ()
+- rename (table, new_table_name)
+- stats (table)
+- auto_increment (table, number)
+- query (query)
+- drop (table)
+- variables (variables_object)
+- process ()
+### Options for methods
+- pull ("all")
+
 ## Example
 
 ```js

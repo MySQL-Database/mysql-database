@@ -11,6 +11,6 @@ module.exports = {
 	"dataNotFound": "Data with the key {key} was not found",
 	
 	"targetNotObject": "Cannot target a non-object with the key {key}",
-	"options": "Options was not specified in function arguments, received {received}",
-	"optionsNotObject": "Options is not an object, received {received}"
+	"variables": "Variables object argument was not specified in function arguments, received {received}",
+	"variablesNotObject": "Variables argument is not an object, received {received}"
 }

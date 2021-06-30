@@ -1,0 +1,29 @@
+{
+  "name": "mysql-database",
+  "version": "1.1.2",
+  "description": "Easily modify your MySQL database data with easy functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mysql",
+    "mysql db",
+    "mysql-db",
+    "mysql.db",
+    "mysql database",
+    "mysql-database",
+    "mysql.database",
+    "sql database",
+    "database"
+  ],
+  "author": "TARIQ",
+  "license": "MIT",
+  "homepage": "https://itariq.dev",
+  "repository": "http://github.com/1TGDev/mysql-database",
+  "dependencies": {
+    "events": "^3.3.0",
+    "lodash": "^4.17.21",
+    "promise-mysql": "^5.0.3"
+  }
+}

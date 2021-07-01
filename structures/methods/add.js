@@ -17,23 +17,16 @@ module.exports = async function(table, key, value){
 	if(isNaN(value) || value < 1){
 		throw new ReferenceError(errors.numberType.replace("{received}", value));
 	}
-	let data;
 	let res;
 	let tables = await this.tables();
 	if(!tables.includes(table)){
-		data = await this.set(table, key, value);
-		res = value;
+		res = await this.set(table, key, value);
 	}else{
-		data = await this.get(table, key);
-		if(!data){
-			data = 0;
-		}
+		let data = await this.get(table, key) || 0;
 		if(isNaN(data)){
 			throw new ReferenceError(errors.notNumber.replace("{key}", key));
 		}
-		data = data + Number(value);
-		await this.set(table, key, data);
-		res = data;
+		res = await this.set(table, key, data + Number(value));
 	}
 	return res;
 }

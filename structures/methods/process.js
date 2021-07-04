@@ -5,7 +5,5 @@ const EventEmitter = require('events');
 const errors = require('../errors/strings.js');
 
 module.exports = async function(){
-	let db = this.db;
-	let res = await db.query(`SHOW PROCESSLIST;`);
-	return res;
+	return this.db.query(`SHOW PROCESSLIST;`);
 }

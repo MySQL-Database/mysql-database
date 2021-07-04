@@ -5,11 +5,9 @@ const EventEmitter = require('events');
 const errors = require('../errors/strings.js');
 
 module.exports = async function(table){
-	if(!table){
-		throw new ReferenceError(errors.table.replace("{received}", table));
-	}
-	let db = this.db;
-	let all = await db.query("SELECT * from " + table);
+	if(!table) throw new TypeError(errors.table.replace("{received}", table));
+	
+	let all = await this.query("SELECT * from " + table);
 	let res = [];
 	all.forEach(obj => {
 		obj.ID = obj.key_name
@@ -19,9 +17,7 @@ module.exports = async function(table){
 		}
 		try{
 			data = JSON.parse(data);
-		}catch(e){
-			
-		}
+		}catch(e){}
 		obj.data = data;
 		delete obj.id;
 		delete obj.key_name;

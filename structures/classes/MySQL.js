@@ -5,10 +5,9 @@ const EventEmitter = require('events');
 const errors = require('../errors/strings.js');
 
 module.exports = class MySQL extends EventEmitter{
-	constructor(){
-		super();
-	}
+	constructor(){ super() };
 	connect = require('../methods/connect');
+	query = require('../methods/query');
 	get = require('../methods/get');
 	set = require('../methods/set');
 	push = require('../methods/push');
@@ -22,7 +21,6 @@ module.exports = class MySQL extends EventEmitter{
 	rename = require('../methods/rename');
 	stats = require('../methods/stats');
 	auto_increment = require('../methods/auto_increment');
-	query = require('../methods/query');
 	drop = require('../methods/drop');
 	variables = require('../methods/variables');
 	process = require('../methods/process');

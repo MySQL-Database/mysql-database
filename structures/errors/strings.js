@@ -3,7 +3,7 @@ module.exports = {
 	"key": "Key was not specified in function arguments, received {received}",
 	"value": "Value was not specified in function arguments, received {received}",
 	"number": "Number was not specified in function arguments, received {received}",
-	"numberType": "Number argument must be an integer, received {received}",
+	"numberType": "Number argument must be an positive integer, received {received}",
 	"query": "SQL Query was not specified in function arguments, received {received}",
 	
 	"array": "{key} key's value is not an array",

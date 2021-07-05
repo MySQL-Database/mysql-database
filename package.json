@@ -22,7 +22,9 @@
   "homepage": "https://itariq.dev",
   "repository": "http://github.com/1TGDev/mysql-database",
   "dependencies": {
+    "colors": "^1.4.0",
     "events": "^3.3.0",
+    "git-releases": "^1.0.0",
     "lodash": "^4.17.21",
     "promise-mysql": "^5.0.3"
   }

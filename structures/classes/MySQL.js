@@ -6,6 +6,8 @@ const errors = require('../errors/strings.js');
 
 module.exports = class MySQL extends EventEmitter{
 	constructor(){ super() };
+	name = require('../../package.json').name;
+	version = require('../../package.json').version;
 	connect = require('../methods/connect');
 	query = require('../methods/query');
 	get = require('../methods/get');

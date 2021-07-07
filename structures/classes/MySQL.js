@@ -23,6 +23,7 @@ module.exports = class MySQL extends EventEmitter{
 	rename = require('../methods/rename');
 	stats = require('../methods/stats');
 	auto_increment = require('../methods/auto_increment');
+	create = require('../methods/create');
 	drop = require('../methods/drop');
 	variables = require('../methods/variables');
 	process = require('../methods/process');

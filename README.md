@@ -33,6 +33,7 @@
 - stats (table)
 - auto_increment (table, number)
 - query (query)
+- craete (table)
 - drop (table)
 - variables (variables_object)
 - process ()

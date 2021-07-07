@@ -141,8 +141,12 @@ async function run(){
 	]
 	*/
 	
+	await db.create("table_name"); // creates table without inserting any data
+	// note: store methods such as: (set,push,add,sub) creates the table automatically
+	
 	// lastly delete the table
 	await db.drop("new_table"); // drops/deletes the table
+	await db.drop("table_name");
 	
 	await db.variables({ // modifies any global variable
 		max_connections: 100000,

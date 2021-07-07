@@ -7,7 +7,7 @@ const errors = require('../errors/strings.js');
 module.exports = async function(table){
 	if(!table) throw new TypeError(errors.table.replace("{received}", table));
 	
-	this.set(table, "initialized_table_at", new Date().toLocaleString());
-	this.delete(table, "initialized_table_at");
+	await this.set(table, "initialized_at", new Date().toLocaleString());
+	await this.delete(table, "initialized_at");
 	return true;
 }

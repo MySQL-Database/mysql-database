@@ -27,7 +27,7 @@
 - add (table, key, value)
 - sub (table, key, value)
 - all (table)
-- delete (table, key, value)
+- delete (table, key)
 - tables ()
 - rename (table, new_table_name)
 - stats (table)

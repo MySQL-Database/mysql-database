@@ -40,6 +40,33 @@
 ### Options for methods
 - pull ("all")
 
+## Example usage
+
+```js
+const MySQL = require('mysql-database');
+const database = new MySQL();
+
+myDataBase()
+async function myDataBase() {
+    let db = await database.connect({
+        host: 'localhost',
+        port: '3306',
+        user: 'root',
+        password: '',
+        database: 'test'
+    })
+    db.on('connected', () => {
+        console.log('DataBase Connected');
+    })
+    const setData = await db.set("my_table", "foo", "boo");
+    console.log(setData); // boo
+    const deleteData = await db.delete("my_table", "foo")
+    console.log(deleteData) // true
+    const addData = await db.add("my_table", "count", 10)
+    console.log(addData) // 10
+}
+```
+
 ## Example
 
 ```js

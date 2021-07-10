@@ -67,7 +67,7 @@ async function myDataBase() {
 }
 ```
 
-## Example
+## All Example
 
 ```js
 const MySQL = require('mysql-database');

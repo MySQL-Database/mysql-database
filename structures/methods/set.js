@@ -10,7 +10,7 @@ module.exports = async function(table, key, value){
 	if(!key) throw new TypeError(errors.key.replace("{received}", key));
 	if(value == null) throw new TypeError(errors.value.replace("{received}", value));
 	
-	await this.query('CREATE TABLE IF NOT EXISTS `' + table + '` (`id` int(11) NOT NULL auto_increment, `key_name` LONGTEXT NULL, `value` LONGTEXT NULL, `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`))');
+	await this.create(table);
 	
 	let keys = key.split('.'),
 	keys2 = key.split('.');

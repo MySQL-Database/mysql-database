@@ -13,7 +13,7 @@ module.exports = async function(table, key){
 	let keys = key.split('.');
 	if(keys.length > 1){
 		key = keys.shift();
-		let data = await this.get(table, key);
+		let data = await this.get(table, key) || {};
 		if(typeof data !== 'object') throw new TypeError(errors.targetNotObject.replace("{key}", key));
 		res = unset(data, keys.join("."));
 		await this.set(table, key, data);

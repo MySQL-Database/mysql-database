@@ -39,6 +39,10 @@
 npm i mysql-database
 ``
 
+## Documentation
+
+[View Documentation](https://mysql-db.cloud)
+
 #### Events
 - connected (connection)
 ```js
@@ -86,17 +90,17 @@ await db.pull("my_table", "fruits", "banana");
 await db.pull("my_table", "fruits", "banana", "all");
 // -> pulls ALL 'banana' from 'fruits' in 'my_table'
 ```
-- includes (table, key, value)
+- includes (table, array, value)
 ```js
 await db.includes("my_table", "fruits", "banana");
-// -> returns a boolean if array includes specific data
+// -> Checks if the array includes provided value
 ```
-- add (table, key, value)
+- add (table, key, number)
 ```js
 await db.add("my_table", "price", 10);
 // -> add 10 to price in 'my_table' table
 ```
-- sub (table, key, value)
+- sub (table, key, number)
 ```js
 await db.sub("my_table", "price", 5);
 // -> subtracts 5 from price - the remaining is 5 from price in 'my_table' table
@@ -149,8 +153,8 @@ await db.drop("table_name");
 - variables (variables_object)
 ```js
 await db.variables({ 
-    max_connections: 100000,
-    max_connect_errors: 100000,
+	max_connections: 100000,
+	max_connect_errors: 100000,
 	wait_timeout: 60
 });
 // -> modifies any global variable

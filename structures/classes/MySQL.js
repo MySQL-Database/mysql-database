@@ -27,4 +27,5 @@ module.exports = class MySQL extends EventEmitter{
 	drop = require('../methods/drop');
 	variables = require('../methods/variables');
 	process = require('../methods/process');
+	ping = require('../methods/ping');
 }

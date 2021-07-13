@@ -159,6 +159,11 @@ await db.variables({
 });
 // -> modifies any global variable
 ```
+- ping ()
+```js
+await db.ping();
+// -> gets database ping (in ms)
+```
 - process ()
 ```js
 await db.process();

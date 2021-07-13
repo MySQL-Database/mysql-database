@@ -154,6 +154,9 @@ async function run(){
 		wait_timeout: 60
 	});
 	
+	let ping = await db.ping(); // gets database ping (in ms)
+	console.log(ping); // 27
+	
 	let processList = await db.process(); // gets all active process list
 	console.log(processList);
 	/*

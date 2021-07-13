@@ -12,5 +12,6 @@ module.exports = {
 	
 	"targetNotObject": "Cannot target a non-object with the key {key}",
 	"variables": "Variables object argument was not specified in function arguments, received {received}",
-	"variablesNotObject": "Variables argument is not an object, received {received}"
+	"variablesNotObject": "Variables argument is not an object, received {received}",
+	"noTablesExisted": "No tables existed to get database ping, at least one table must be existed in the database"
 }

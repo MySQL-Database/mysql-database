@@ -3,11 +3,12 @@
 const mysql = require('promise-mysql');
 const EventEmitter = require('events');
 const errors = require('../errors/strings.js');
+const packageInfo = require('../../package.json');
 
 module.exports = class MySQL extends EventEmitter{
 	constructor(){ super() };
-	name = require('../../package.json').name;
-	version = require('../../package.json').version;
+	name = packageInfo.name;
+	version = packageInfo.version;
 	connect = require('../methods/connect');
 	query = require('../methods/query');
 	get = require('../methods/get');
@@ -17,6 +18,7 @@ module.exports = class MySQL extends EventEmitter{
 	pull = require('../methods/pull');
 	add = require('../methods/add');
 	sub = require('../methods/sub');
+	subtract = require('../methods/sub');
 	delete = require('../methods/delete');
 	all = require('../methods/all');
 	tables = require('../methods/tables');

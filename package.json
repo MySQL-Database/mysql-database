@@ -1,6 +1,6 @@
 {
   "name": "mysql-database",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Easily modify your MySQL database data with easy functions",
   "main": "index.js",
   "scripts": {

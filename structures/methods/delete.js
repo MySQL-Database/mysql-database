@@ -1,7 +1,5 @@
 "use strict";
 
-const mysql = require('promise-mysql');
-const EventEmitter = require('events');
 const unset = require('lodash/unset');
 const errors = require('../errors/strings.js');
 

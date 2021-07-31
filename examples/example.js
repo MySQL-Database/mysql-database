@@ -26,6 +26,11 @@ async function run(){
 	data = await db.get("my_table", "tariq");
 	console.log(data); // { age: 14 }
 	
+	await db.base_set("my_table", "foo", "bar"); // stores 'bar' in 'foo' key name in the table 'my_table' but base encrypted
+	
+	data = await db.base_get("my_table", "foo"); // gets foo key name value in the table 'my_table' for encrypted rows using base_set method
+	console.log(data); // bar
+	
 	await db.push("my_table", "array", "Value"); // pushs 'Value' to 'array' in 'my_table' table | or creates an array with 'Value' if not exists
 	await db.push("my_table", "array", "Value");
 	await db.push("my_table", "array", "Value2");
@@ -144,6 +149,12 @@ async function run(){
 	await db.create("table_name"); // creates table without inserting any data
 	// note: store methods such as: (set,push,add,sub) creates the table automatically
 	
+	let ping = await db.ping(); // gets database ping (in ms)
+	console.log(ping); // 27
+	
+	// clear all table data
+	await db.clear("new_table");
+	
 	// lastly delete the table
 	await db.drop("new_table"); // drops/deletes the table
 	await db.drop("table_name");
@@ -153,9 +164,6 @@ async function run(){
 		max_connect_errors: 100000,
 		wait_timeout: 60
 	});
-	
-	let ping = await db.ping(); // gets database ping (in ms)
-	console.log(ping); // 27
 	
 	let processList = await db.process(); // gets all active process list
 	console.log(processList);

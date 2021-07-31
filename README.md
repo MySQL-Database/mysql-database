@@ -78,6 +78,16 @@ await db.set('my_table', 'foo', 'bar');
 await db.get('my_table', 'foo');
 // -> Gets foo key name value (which is bar) in the table 'my_table'
 ```
+- base_set (table, key, value)
+```js
+await db.base_set('my_table', 'foo', 'bar');
+// -> Stores 'bar' in 'foo' key name in the table 'my_table' but base encrypted
+```
+- base_get (table, key)
+```js
+await db.base_get('my_table', 'foo');
+// -> Gets foo key name value (which is bar) in the table 'my_table' for encrypted rows using base_set method
+```
 - push (table, array, value)
 ```js
 await db.push('my_table', 'fruits', 'banana');
@@ -150,6 +160,11 @@ await db.create("table_name");
 await db.drop("table_name");
 // -> deletes the table 'table_name'
 ```
+- clear (table)
+```js
+await db.clear("table_name");
+// -> clears all 'table_name' table rows & data
+```
 - variables (variables_object)
 ```js
 await db.variables({ 
@@ -169,7 +184,6 @@ await db.ping();
 await db.process();
 // -> returns the processes/connections list
 ```
-
 
 #### Contributing
 © mysql-database, 2021 | <a href="https://itariq.dev" target="_blank">TARIQ</a> <a href="mailto:contact@itariq.dev">(contact@itariq.dev)</a>

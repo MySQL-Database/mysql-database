@@ -1,8 +1,6 @@
 "use strict";
 
-const mysql = require('promise-mysql');
 const EventEmitter = require('events');
-const errors = require('../errors/strings.js');
 const packageInfo = require('../../package.json');
 
 module.exports = class MySQL extends EventEmitter{
@@ -30,4 +28,7 @@ module.exports = class MySQL extends EventEmitter{
 	variables = require('../methods/variables');
 	process = require('../methods/process');
 	ping = require('../methods/ping');
+	clear = require('../methods/clear');
+	base_set = require('../methods/base_set');
+	base_get = require('../methods/base_get');
 }

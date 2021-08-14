@@ -3,24 +3,14 @@
 const get = require('lodash/get');
 const errors = require('../errors/strings.js');
 
-module.exports = async function (table, key, boolean) {
+module.exports = async function (table, key) {
 	if (!table) throw new TypeError(errors.table.replace("{received}", table));
 	if (!key) throw new TypeError(errors.key.replace("{received}", key));
-	let keys
-	let keys2
 
-	if (boolean === true) {
-		keys = key.split('.');
+	let keys = key.split('.'),
 		keys2 = key.split('.');
-		if (keys.length > 1) {
-			key = keys.shift();
-		}
-	}
-
-
-	if (boolean === false || undefined) {
-		key = key
-		keys2 = key
+	if (keys.length > 1) {
+		key = keys.shift();
 	}
 	let res = await this.query({
 		sql: "SELECT value FROM " + table + " WHERE `key_name` = ?",
@@ -38,11 +28,7 @@ module.exports = async function (table, key, boolean) {
 		} catch (e) { }
 	}
 	if (keys2.length > 1 && typeof value === 'object') {
-		if (boolean === false || undefined) {
-			value = get(value, key);
-		} else if (boolean === true) {
-			value = get(value, keys.join("."));
-		}
+		value = get(value, keys.join("."));
 		if (value == undefined) value = null;
 	} else if (keys2.length > 1) {
 		throw new ReferenceError(errors.targetNotObject.replace("{key}", key));

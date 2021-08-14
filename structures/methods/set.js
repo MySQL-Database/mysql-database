@@ -34,15 +34,18 @@ module.exports = async function (table, key, value, boolean) {
 			values: [key, JSON.stringify({})]
 		});
 	}
-	data = await this.get(table, key, boolean || false) || {};
-	if (keys2.length > 1 && typeof data === 'object') {
-		if (boolean === false) {
-			value = set(data, key, value, false);
-		} else if (boolean === true || undefined) {
-			value = set(data, keys.join("."), value, true);
+	data = await this.get(table, key, boolean || true) || {};
+
+	if (boolean === true || undefined) {
+		if (keys2.length > 1 && typeof data === 'object') {
+			if (boolean === false) {
+				value = set(data, key, value, false);
+			} else if (boolean === true || undefined) {
+				value = set(data, keys.join("."), value, true);
+			}
+		} else if (keys2.length > 1) {
+			throw new ReferenceError(errors.targetNotObject.replace("{key}", key));
 		}
-	} else if (keys2.length > 1) {
-		throw new ReferenceError(errors.targetNotObject.replace("{key}", key));
 	}
 
 	try {
@@ -54,7 +57,7 @@ module.exports = async function (table, key, value, boolean) {
 	});
 
 	if (boolean === false) {
-		return this.get(table, (keys2.length > 1) ? key + "." + key : key, false);
+		return this.get(table, key, false);
 	} else if (boolean === true || undefined) {
 		return this.get(table, (keys2.length > 1) ? key + "." + keys.join(".") : key, true);
 	}

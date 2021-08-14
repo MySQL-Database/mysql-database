@@ -3,19 +3,27 @@
 const set = require('lodash/set');
 const errors = require('../errors/strings.js');
 
-module.exports = async function (table, key, value) {
+module.exports = async function (table, key, value, boolean) {
 	if (!table) throw new TypeError(errors.table.replace("{received}", table));
 	if (!key) throw new TypeError(errors.key.replace("{received}", key));
 	if (value == null) throw new TypeError(errors.value.replace("{received}", value));
 
 	await this.create(table);
+	let keys
+	let keys2
 
-	let keys = key.split('.'),
+	if (boolean === true || undefined) {
+		keys = key.split('.');
 		keys2 = key.split('.');
-	if (keys.length > 1) {
-		key = keys.shift();
+		if (keys.length > 1) {
+			key = keys.shift();
+		}
 	}
 
+	if (boolean === false) {
+		key = key
+		keys2 = key
+	}
 	let data = await this.query({
 		sql: "SELECT value FROM " + table + " WHERE `key_name` = ?",
 		values: [key]
@@ -26,9 +34,13 @@ module.exports = async function (table, key, value) {
 			values: [key, JSON.stringify({})]
 		});
 	}
-	data = await this.get(table, key) || {};
+	data = await this.get(table, key, boolean || false) || {};
 	if (keys2.length > 1 && typeof data === 'object') {
-		value = set(data, keys.join("."), value);
+		if (boolean === false) {
+			value = set(data, key, value, false);
+		} else if (boolean === true || undefined) {
+			value = set(data, keys.join("."), value, true);
+		}
 	} else if (keys2.length > 1) {
 		throw new ReferenceError(errors.targetNotObject.replace("{key}", key));
 	}
@@ -41,5 +53,9 @@ module.exports = async function (table, key, value) {
 		values: [value, key]
 	});
 
-	return this.get(table, (keys2.length > 1) ? key + "." + keys.join(".") : key);
+	if (boolean === false) {
+		return this.get(table, (keys2.length > 1) ? key + "." + key : key, false);
+	} else if (boolean === true || undefined) {
+		return this.get(table, (keys2.length > 1) ? key + "." + keys.join(".") : key, true);
+	}
 }

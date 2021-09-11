@@ -6,7 +6,7 @@ module.exports = async function(table, key, value){
 	if(!table) throw new TypeError(errors.table.replace("{received}", table));
 	if(!key) throw new TypeError(errors.key.replace("{received}", key));
 	if(value == null) throw new TypeError(errors.value.replace("{received}", value));
-	if(isNaN(value) || value < 1) throw new TypeError(errors.numberType.replace("{received}", value));
+	if(isNaN(value) || value <= 0) throw new TypeError(errors.numberType.replace("{received}", value));
 	
 	let res;
 	let tables = await this.tables();

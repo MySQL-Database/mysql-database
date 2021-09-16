@@ -184,6 +184,11 @@ await db.ping();
 await db.process();
 // -> returns the processes/connections list
 ```
+- end ()
+```js
+await db.end();
+// -> closes the connection
+```
 
 #### Contributing
 © mysql-database, 2021 | <a href="https://itariq.dev" target="_blank">TARIQ</a> <a href="mailto:contact@itariq.dev">(contact@itariq.dev)</a>

@@ -237,4 +237,6 @@ async function run(){
 		}
 	]
 	*/
+	
+	await db.end(); // closes the connection
 }

@@ -2,13 +2,13 @@
 
 const mysql = require('promise-mysql');
 const errors = require('../errors/strings.js');
-const colors = require('colors');
 const releases = require('git-releases');
+require('colors');
 
 module.exports = async function(options, checkUpdates){
 	let me = this;
 	me.db = await mysql.createPool(options);
-	process.nextTick(() => me.emit("connected", me.db));
+	me.db.on('connection', () => me.emit("connected", me.db));
 	if(checkUpdates === true){
 		setInterval(async function(){
 			let data = await releases("1TGDev", me.name, true);

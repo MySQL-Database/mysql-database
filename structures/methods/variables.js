@@ -4,7 +4,7 @@ const errors = require('../errors/strings.js');
 
 module.exports = async function(variables){
 	if(!variables) throw new TypeError(errors.variables.replace("{received}", variables));
-	if(typeof variables !== "object") throw new TypeError(errors.variablesNotObject.replace("{received}", variables));
+	if(typeof variables !== "object" || Array.isArray(variables)) throw new TypeError(errors.variablesNotObject.replace("{received}", typeof variables));
 	
 	let res = {};
 	let keys = Object.keys(variables);

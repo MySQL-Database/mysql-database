@@ -1,10 +1,10 @@
 module.exports = {
-	"table": "Table was not specified in function arguments, received {received}",
-	"key": "Key was not specified in function arguments, received {received}",
+	"table": "Table was not specified in function arguments or not string, received {received}",
+	"key": "Key was not specified in function arguments or not string, received {received}",
 	"value": "Value was not specified in function arguments, received {received}",
-	"number": "Number was not specified in function arguments, received {received}",
+	"number": "Number was not specified in function arguments or not number, received {received}",
 	"numberType": "Number argument must be an positive integer, received {received}",
-	"query": "SQL Query was not specified in function arguments, received {received}",
+	"query": "SQL Query was not specified in function arguments or not string, received {received}",
 	
 	"array": "{key} key's value is not an array",
 	"notNumber": "{key} key's value is not a number",

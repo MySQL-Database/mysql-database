@@ -8,7 +8,10 @@ require('colors');
 module.exports = async function(options, checkUpdates){
 	let me = this;
 	me.db = await mysql.createPool(options);
-	me.db.on('connection', (connection) => me.emit("connected", connection));
+	me.db.pool.getConnection((err,connection) => {
+		if(err) throw err;
+		me.emit("connected", connection);
+	})
 	if(checkUpdates === true){
 		setInterval(async function(){
 			let data = await releases("1TGDev", me.name, true);

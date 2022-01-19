@@ -191,4 +191,4 @@ await db.end();
 ```
 
 #### Contributing
-© mysql-database, 2021 | <a href="https://itariq.dev" target="_blank">TARIQ</a> <a href="mailto:contact@itariq.dev">(contact@itariq.dev)</a>
+© mysql-database, 2021 - 2022 | <a href="https://itariq.dev" target="_blank">TARIQ</a> <a href="mailto:contact@itariq.dev">(contact@itariq.dev)</a>

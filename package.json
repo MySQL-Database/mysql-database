@@ -1,6 +1,6 @@
 {
   "name": "mysql-database",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "Easily modify your MySQL database data with easy functions",
   "main": "index.js",
   "scripts": {
@@ -17,10 +17,18 @@
     "sql database",
     "database"
   ],
-  "author": "TARIQ",
+  "author": {
+	"name": "TARIQ",
+	"email": "contact@itariq.dev",
+	"url": "https://itariq.dev"
+  },
   "license": "MIT",
   "homepage": "https://mysql-db.cloud",
   "repository": "http://github.com/1TGDev/mysql-database",
+  "bugs": {
+	"url" : "http://github.com/1TGDev/mysql-database/issues",
+	"email" : "contact@itariq.dev"
+  },
   "dependencies": {
     "colors": "^1.4.0",
     "events": "^3.3.0",

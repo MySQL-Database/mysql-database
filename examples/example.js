@@ -8,7 +8,8 @@ async function run(){
 		port: '3306', // the default is 3306
 		user: 'root',
 		password: '',
-		database: 'my_database'
+		database: 'my_database',
+		charset: 'utf8mb4'
 	});
 	
 	db.on('connected', function(connection){ // database connected event

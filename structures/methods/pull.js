@@ -13,7 +13,7 @@ module.exports = async function(table, key, value, option){
 	if(option && (option === true || option.toLowerCase() === "all")){
 		data = data.filter(obj => obj !== value);
 	}else{
-		data.splice(data.indexOf(value), 1);
+		if(data.includes(value)) data.splice(data.indexOf(value), 1);
 	}
 	return this.set(table, key, data);
 }

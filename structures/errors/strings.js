@@ -9,6 +9,9 @@ module.exports = {
 	"array": "{key} key's value is not an array",
 	"notNumber": "{key} key's value is not a number",
 	"dataNotFound": "Data with the key {key} was not found",
+	"tableNotFound": "Table with the name {table} does not exist",
+	"tableAlreadyExists": "Table with the name {table} already exists",
+	"tableRenameSameName": "Can't rename a table to its current name",
 	
 	"targetNotObject": "Cannot target a non-object with the key {key}",
 	"variables": "Variables object argument was not specified in function arguments, received {received}",

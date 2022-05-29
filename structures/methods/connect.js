@@ -11,14 +11,14 @@ module.exports = async function(options, checkUpdates){
 	me.db.pool.getConnection((err,connection) => {
 		if(err) throw err;
 		me.emit("connected", connection);
-	})
+	});
 	if(checkUpdates === true){
 		setInterval(async function(){
 			let data = await releases("1TGDev", me.name, true);
 			if(data !== me.version){
 				console.log(me.name.brightYellow + " is outdated".brightYellow + "\nnpm i ".brightRed + me.name.brightRed);
 			}
-		}, 180000)
+		}, 180000);
 	}
 	return me;
 }

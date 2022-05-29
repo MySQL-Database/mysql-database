@@ -10,9 +10,7 @@ module.exports = async function(table){
 	all.forEach(obj => {
 		obj.ID = obj.key_name
 		let data = obj.value;
-		if(!isNaN(data)){
-			data = Number(data);
-		}
+		if(!isNaN(data)) data = Number(data);
 		try{
 			data = JSON.parse(data);
 		}catch(e){}

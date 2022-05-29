@@ -18,16 +18,16 @@
     "database"
   ],
   "author": {
-	"name": "TARIQ",
-	"email": "contact@itariq.dev",
-	"url": "https://itariq.dev"
+    "name": "TARIQ",
+    "email": "contact@itariq.dev",
+    "url": "https://itariq.dev"
   },
   "license": "MIT",
   "homepage": "https://mysql-db.cloud",
   "repository": "http://github.com/1TGDev/mysql-database",
   "bugs": {
-	"url" : "http://github.com/1TGDev/mysql-database/issues",
-	"email" : "contact@itariq.dev"
+    "url": "http://github.com/1TGDev/mysql-database/issues",
+    "email": "contact@itariq.dev"
   },
   "dependencies": {
     "colors": "^1.4.0",

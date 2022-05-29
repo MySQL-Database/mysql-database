@@ -8,6 +8,6 @@ module.exports = async function(table, key, value){
 	if(value === undefined) throw new TypeError(errors.value.replace("{received}", typeof value));
 	if(typeof value !== "string") throw new TypeError(errors.baseNotString);
 	
-	await this.set(table, key, Buffer.from(value, 'binary').toString('base64'));
+	await this.set(table, key, Buffer.from(value, 'binary').toString('base64'), true);
 	return this.base_get(table, key);
 }

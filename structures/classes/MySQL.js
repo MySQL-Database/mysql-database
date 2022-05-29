@@ -32,4 +32,5 @@ module.exports = class MySQL extends EventEmitter{
 	base_set = require('../methods/base_set');
 	base_get = require('../methods/base_get');
 	end = require('../methods/end');
+	exists = require('../methods/exists');
 }

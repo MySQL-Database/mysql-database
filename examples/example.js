@@ -56,6 +56,9 @@ async function run(){
 	data = await db.get("my_table", "tariq");
 	console.log(data); // { age: 14 }
 	
+	data = await db.exists("my_table", "tq"); // checks if a specific data exists
+	console.log(data); // false
+	
 	await db.base_set("my_table", "foo", "bar"); // stores 'bar' in 'foo' key name in the table 'my_table' but base encrypted
 	
 	data = await db.base_get("my_table", "foo"); // gets foo key name value in the table 'my_table' for encrypted rows using base_set method

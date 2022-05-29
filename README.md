@@ -107,6 +107,11 @@ await db.set('my_table', 'foo', 'bar');
 await db.get('my_table', 'foo');
 // -> Gets foo key name value (which is bar) in the table 'my_table'
 ```
+- exists (table, key)
+```js
+await db.exists('my_table', 'foo');
+// -> Checks if a specific data exists
+```
 - base_set (table, key, value)
 ```js
 await db.base_set('my_table', 'foo', 'bar');

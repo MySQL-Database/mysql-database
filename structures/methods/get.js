@@ -7,6 +7,9 @@ module.exports = async function(table, key){
 	if(!table || typeof table !== "string") throw new TypeError(errors.table.replace("{received}", typeof table));
 	if(!key || typeof key !== "string") throw new TypeError(errors.key.replace("{received}", typeof key));
 	
+	let tables = await this.tables();
+	if(!tables.includes(table)) return null;
+	
 	let keys = key.split('.'),
 	keys2 = key.split('.');
 	if(keys.length > 1){

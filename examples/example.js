@@ -16,7 +16,7 @@ async function run(){
 		console.log('Database Connected');
 	});
 	
-	db.on('dataModification', async (event) => {
+	db.on('dataModification', async event => { // data changes & modifications event
 		console.log(event);
 		/*
 		{

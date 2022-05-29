@@ -53,7 +53,7 @@ const database = new MySQL();
 // Create Your Own Connection
 run();
 async function run(){
-	let db = await database.connect({ 
+	let db = await database.connect({ // creates a database connection
 		host: 'localhost',
 		port: '3306', // the default is 3306
 		user: 'root',
@@ -61,11 +61,39 @@ async function run(){
 		database: 'my_database',
 		charset: 'utf8mb4'
 	});
-
-	// database connected event
-	db.on('connected', function (connection) {
+	
+	db.on('connected', async connection => { // database connected event
 		console.log('Database Connected');
-	})
+	});
+	
+	db.on('dataModification', async event => { // data changes & modifications event
+		console.log(event);
+		/*
+		{
+			oldData: 'bar',
+			newData: 'bar2',
+			type: 'UPDATE',
+			table: 'test_table',
+			modifiedAt: 1653815607288
+		}
+		*/
+	});
+	
+	db.on('tableCreate', async table => {
+		console.log(`Table ${table} Created`);
+	});
+	
+	db.on('tableDelete', async table => {
+		console.log(`Table ${table} Deleted`);
+	});
+	
+	db.on('tableClear', async table => {
+		console.log(`Table ${table} Data Cleared`);
+	});
+	
+	db.on('tableRename', async (oldName, newName) => {
+		console.log(`Table renamed from ${oldName} to ${newName}`);
+	});
 }
 ```
 #### Methods

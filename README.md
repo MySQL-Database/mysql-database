@@ -45,8 +45,12 @@ npm i mysql-database
 
 #### Events
 - connected (connection)
+- dataModification (event object)
+- tableCreate (table)
+- tableDelete (table)
+- tableClear (table)
+- tableRename (oldName, newName)
 ```js
-// Import Libary
 const MySQL = require('mysql-database');
 const database = new MySQL();
 

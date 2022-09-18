@@ -44,6 +44,7 @@ npm i mysql-database
 [View Documentation](https://mysql-db.cloud)
 
 #### Events
+**[Note]: Events are only emitted if the action is taken from the library, which means if you manage the database from other connection events wouldn't work**
 - connected (connection)
 - dataModification (event object)
 - tableCreate (table)

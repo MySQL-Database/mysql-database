@@ -1,5 +1,5 @@
 <div align="center">
-	<br />
+	<br/>
 	<p>
 		<a href="https://www.npmjs.com/package/mysql-database"><img src="https://cdn.discordapp.com/attachments/858540031160877077/863418307109453874/1200px-MySQL.png" width="300" alt="MySQL-database" /></a>
 	</p>

@@ -17,7 +17,7 @@ module.exports = async function(table, key){
 		await this.set(table, key, data);
 	}else{
 		let oldData = await this.get(table, key);
-		await this.query(`DELETE FROM ${table} WHERE key_name = '${key}'`);
+		await this.query(`DELETE FROM \`${table}\` WHERE key_name = '${key}'`);
 		this.emit("dataModification", {oldData, newData: null, type: "DELETE", table, modifiedAt: Date.now()});
 	}
 	return res;

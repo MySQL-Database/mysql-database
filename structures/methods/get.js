@@ -16,7 +16,7 @@ module.exports = async function(table, key){
 		key = keys.shift();
 	}
 	let res = await this.query({
-		sql: "SELECT value FROM " + table + " WHERE `key_name` = ?",
+		sql: `SELECT value FROM \`${table}\` WHERE \`key_name\` = ?`,
 		values: [key]
 	});
 	if(!res.length) return null;

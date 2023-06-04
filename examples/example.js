@@ -5,12 +5,13 @@ run();
 async function run(){
 	let db = await database.connect({ // creates a database connection
 		host: 'localhost',
-		port: '3306', // the default is 3306
+		port: '3306', // the default port is 3306
 		user: 'root',
 		password: '',
 		database: 'my_database',
-		charset: 'utf8mb4'
-	});
+		charset: 'utf8mb4',
+		checkUpdates: true // checks for package updates
+	}, true); // or you check for package updates here
 	
 	db.on('connected', async connection => { // database connected event
 		console.log('Database Connected');

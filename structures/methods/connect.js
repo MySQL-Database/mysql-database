@@ -12,7 +12,7 @@ module.exports = async function(options, checkUpdates){
 		if(err) throw err;
 		me.emit("connected", connection);
 	});
-	if(checkUpdates === true){
+	if(checkUpdates === true || (options && options.checkUpdates === true)){
 		setInterval(async function(){
 			let data = await releases("1TGDev", me.name, true);
 			if(data !== me.version){

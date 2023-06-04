@@ -17,12 +17,12 @@ module.exports = async function(table, key, value, isBaseValue){
 	if(keys.length > 1) key = keys.shift();
 	
 	let data = await this.query({
-		sql: "SELECT value FROM " + table + " WHERE `key_name` = ?",
+		sql: `SELECT value FROM \`${table}\` WHERE \`key_name\` = ?`,
 		values: [key]
 	});
 	if(!data.length){
 		await this.query({
-			sql: "INSERT INTO " + table + " (`key_name`, `value`) VALUES (?, ?)",
+			sql: `INSERT INTO \`${table}\` (\`key_name\`, \`value\`) VALUES (?, ?)`,
 			values: [key,JSON.stringify({})]
 		});
 	}
@@ -37,7 +37,7 @@ module.exports = async function(table, key, value, isBaseValue){
 		value = JSON.stringify(value);
 	}catch(e){}
 	await this.query({
-		sql: "UPDATE " + table + " SET `value` = ? WHERE `key_name` = ?",
+		sql: `UPDATE \`${table}\` SET \`value\` = ? WHERE \`key_name\` = ?`,
 		values: [value,key]
 	});
 	let modifiedAt = Date.now()

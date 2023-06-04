@@ -10,7 +10,7 @@ module.exports = async function(table, newTable){
 	if(!tables.includes(table)) throw new TypeError(errors.tableNotFound.replace("{table}", table));
 	if(tables.includes(newTable)) throw new TypeError(errors.tableAlreadyExists.replace("{table}", newTable));
 	
-	await this.query(`ALTER TABLE ${table} RENAME TO ${newTable}`);
+	await this.query(`ALTER TABLE \`${table}\` RENAME TO \`${newTable}\``);
 	this.emit("tableRename", table, newTable);
 	return true;
 }

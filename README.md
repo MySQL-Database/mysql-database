@@ -36,7 +36,7 @@
 ## Installation
 
 ``
-npm i mysql-database
+npm i mysql-database@latest
 ``
 
 ## Documentation
@@ -223,6 +223,31 @@ await db.ping();
 await db.process();
 // -> returns the processes/connections list
 ```
+- create_db (database_name)
+```js
+await db.create_db("second_db");
+// -> creates a separate database on the server
+
+// -> you need to create a new connection manually after creating a new database
+const secondDB = new MySQL();
+let newDb = await secondDB.connect({
+	host: 'localhost',
+	port: '3306',
+	user: 'root',
+	password: '',
+	database: 'second_db',
+	charset: 'utf8mb4',
+});
+// note: if you had an old events, you need to re-register the events since this is a new class created
+newDb.on('connected', async connection => {
+	console.log('New Database Connected');
+});
+
+// now you can manage your "newDb" connection
+await newDb.set("second_db_table", "key", "value");
+await newDb.drop("second_db_table");
+await newDb.end();
+```
 - end ()
 ```js
 await db.end();
@@ -230,4 +255,4 @@ await db.end();
 ```
 
 #### Contributing
-© mysql-database, 2021 - 2022 | <a href="https://itariq.dev" target="_blank">TARIQ</a> <a href="mailto:contact@itariq.dev">(contact@itariq.dev)</a>
+© mysql-database, 2021 - 2023 | <a href="https://itariq.dev" target="_blank">TARIQ</a> <a href="mailto:contact@itariq.dev">(contact@itariq.dev)</a>

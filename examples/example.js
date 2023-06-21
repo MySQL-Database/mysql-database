@@ -1,9 +1,9 @@
-const MySQL = require('../index.js');
-const database = new MySQL();
+const MySQL = require('../index.js'); // importing the package
 
 run();
 async function run(){
-	let db = await database.connect({ // creates a database connection
+	const database = new MySQL(); // creates a database class
+	let db = await database.connect({ // creates a connection for the database
 		host: 'localhost',
 		port: '3306', // the default port is 3306
 		user: 'root',
@@ -186,8 +186,7 @@ async function run(){
 	let ping = await db.ping(); // gets database ping (in ms)
 	console.log(ping); // 27
 	
-	// clear all table data
-	await db.clear("new_table");
+	await db.clear("new_table"); // clear all table data
 	
 	// lastly delete the table
 	await db.drop("new_table"); // drops/deletes the table
@@ -272,5 +271,31 @@ async function run(){
 	]
 	*/
 	
+	await db.create_db("second_db"); // creates a separate database on the server
+	
+	// you need to create a new connection manually after creating a new database
+	const secondDB = new MySQL();
+	let newDb = await secondDB.connect({
+		host: 'localhost',
+		port: '3306',
+		user: 'root',
+		password: '',
+		database: 'second_db',
+		charset: 'utf8mb4',
+	});
+	// note: if you had an old events, you need to re-register the events since this is a new class created
+	newDb.on('connected', async connection => { // database connected event
+		console.log('New Database Connected');
+	});
+	
+	// now you can manage your "newDb" connection
+	await newDb.set("second_db_table", "key", "value");
+	await newDb.drop("second_db_table");
+	
+	// you can still manage your old "db" connection as well
+	await db.set("old_db_table", "key", "value");
+	await db.drop("old_db_table");
+	
 	await db.end(); // closes the connection
+	await newDb.end();
 }

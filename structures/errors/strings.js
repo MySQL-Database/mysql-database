@@ -5,6 +5,7 @@ module.exports = {
 	"number": "Number was not specified in function arguments or not number, received {received}",
 	"numberType": "Number argument must be an positive integer, received {received}",
 	"query": "SQL Query was not specified in function arguments or not string, received {received}",
+	"databaseName": "Database name was not specified in function arguments or not string, received {received}",
 	
 	"array": "{key} key's value is not an array",
 	"notNumber": "{key} key's value is not a number",
